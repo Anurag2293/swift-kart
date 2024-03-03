@@ -7,14 +7,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model playing_with_neon {
+model demo_table {
   id    Int    @id @default(autoincrement())
   name  String
   value Float? @db.Real
 }
 
-model demo_table {
-  id    Int    @id @default(autoincrement())
-  name  String
-  value Float? @db.Real
+model products {
+  id                  Int      @id @default(autoincrement())
+  title               String?  @db.VarChar(255)
+  description         String?
+  price               Decimal? @db.Decimal(10, 2)
+  discount_percentage Decimal? @db.Decimal(5, 2)
+  rating              Decimal? @db.Decimal(3, 2)
+  stock               Int?
+  brand               String?  @db.VarChar(255)
+  thumbnail           String?  @db.VarChar(255)
+  category_id         Int?
+}
+
+model categories {
+  id   Int     @id @default(autoincrement())
+  name String? @unique
+}
+
+model product_images {
+  id        Int    @id @default(autoincrement())
+  imageLink String @db.VarChar()
+  productId Int?
 }
