@@ -12,3 +12,31 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Product {
+  id                  Int            @id @default(autoincrement())
+  title               String?        @db.VarChar(255)
+  description         String?
+  price               Decimal?       @db.Decimal(10, 2)
+  discount_percentage Decimal?       @db.Decimal(5, 2)
+  rating              Decimal?       @db.Decimal(3, 2)
+  stock               Int?
+  brand               String?        @db.VarChar(255)
+  thumbnail           String?        @db.VarChar(255)
+  category            Category       @relation(fields: [category_id], references: [id])
+  category_id         Int
+  product_images      ProductImage[]
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique
+  Product Product[]
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  imageLink String  @db.VarChar()
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+}
