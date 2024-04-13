@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "mens-shirts"
+    },
+    {
+        "id": 2,
+        "name": "womens-watches"
+    },
+    {
+        "id": 3,
+        "name": "womens-bags"
+    },
+    {
+        "id": 4,
+        "name": "womens-jewellery"
+    },
+    {
+        "id": 5,
+        "name": "sunglasses"
+    },
+    {
+        "id": 6,
+        "name": "automotive"
+    },
+    {
+        "id": 7,
+        "name": "motorcycle"
+    },
+    {
+        "id": 8,
+        "name": "lighting"
+    },
+    {
+        "id": 9,
+        "name": "mens-shoes"
+    },
+    {
+        "id": 10,
+        "name": "groceries"
+    },
+    {
+        "id": 11,
+        "name": "womens-shoes"
+    },
+    {
+        "id": 12,
+        "name": "home-decoration"
+    },
+    {
+        "id": 13,
+        "name": "fragrances"
+    },
+    {
+        "id": 14,
+        "name": "skincare"
+    },
+    {
+        "id": 15,
+        "name": "mens-watches"
+    },
+    {
+        "id": 16,
+        "name": "womens-dresses"
+    },
+    {
+        "id": 17,
+        "name": "furniture"
+    },
+    {
+        "id": 18,
+        "name": "laptops"
+    },
+    {
+        "id": 19,
+        "name": "smartphones"
+    },
+    {
+        "id": 20,
+        "name": "tops"
+    }
+]
