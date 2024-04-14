@@ -1,7 +1,7 @@
 import React from 'react'
 import { auth } from '@/app/auth'
-import GoogleSignInButton from './GoogleSignInButton';
-import GoogleSignOutButton from './GoogleSignOutButton';
+import GoogleSignInButton from './ui/GoogleSignInButton';
+import GoogleSignOutButton from './ui/GoogleSignOutButton';
 import ThemeController from './ThemeController';
 
 const Navbar = async () => {
