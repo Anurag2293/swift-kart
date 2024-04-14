@@ -10,19 +10,37 @@ export const GET = async (request: NextRequest) => {
 
         const products = await prisma.product.findMany({
             take: Number(take) || 1000,
-            skip: Number(skip) || 0
-        });
+            skip: Number(skip) || 0,
+            select: {
+                id: true,
+                title: true,
+                description: true,
+                price: true,
+                discount_percentage: true,
+                rating: true,
+                stock: true,
+                brand: true,
+                thumbnail: true,
+                category: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
+        })
 
-        return NextResponse.json({ products });
+        const totalProducts = await prisma.product.count()
+
+        return NextResponse.json({ products, totalProducts });
     } catch (error) {
-        return NextResponse.json({ error });
+        return NextResponse.error();
     }
 }
 
 export const POST = async (request: NextRequest) => {
     try {
         const body = await request.json();
-        const { title, description, price, discountPercentage, rating, stock, brand, thumbnail, categoryId, categoryName } 
+        const { title, description, price, discountPercentage, rating, stock, brand, thumbnail, categoryId, categoryName }
             = body.product;
 
         if (!categoryId && !categoryName) {
@@ -31,13 +49,13 @@ export const POST = async (request: NextRequest) => {
 
         let category;
         if (categoryId) {
-            category = await prisma.category.findFirst({ 
+            category = await prisma.category.findFirst({
                 where: {
                     id: categoryId
                 }
             })
         } else {
-            category = await prisma.category.findFirst({ 
+            category = await prisma.category.findFirst({
                 where: {
                     name: categoryName
                 }
@@ -49,21 +67,21 @@ export const POST = async (request: NextRequest) => {
         }
 
         const newProduct = await prisma.product.create({
-                data: {
-                    title,
-                    description,
-                    price,
-                    discount_percentage: discountPercentage,
-                    rating,
-                    stock,
-                    brand,
-                    thumbnail,
-                    category_id: category.id 
-                }
-            })
-        return NextResponse.json({newProduct});
+            data: {
+                title,
+                description,
+                price,
+                discount_percentage: discountPercentage,
+                rating,
+                stock,
+                brand,
+                thumbnail,
+                category_id: category.id
+            }
+        })
+        return NextResponse.json({ newProduct });
     } catch (error) {
-        return NextResponse.json({error});
+        return NextResponse.json({ error });
     }
 }
 
@@ -76,8 +94,8 @@ export const DELETE = async (request: NextRequest) => {
                 id: productId
             }
         });
-        return NextResponse.json({deleteProduct});
+        return NextResponse.json({ deleteProduct });
     } catch (error: any) {
-        return NextResponse.json({error: error.message});
+        return NextResponse.json({ error: error.message });
     }
 }

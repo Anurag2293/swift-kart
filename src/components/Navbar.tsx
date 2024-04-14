@@ -10,7 +10,7 @@ const Navbar = async () => {
     console.log({session})
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 sticky top-0 z-[10000]">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">Swift KART</a>
             </div>
