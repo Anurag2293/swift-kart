@@ -7,7 +7,13 @@ const nextConfig = {
                 hostname: 'cdn.dummyjson.com',
                 port: '',
                 pathname: '**'
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'daisyui.com',
+                port: '',
+                pathname: '**'
+            },
         ]
     }
 };

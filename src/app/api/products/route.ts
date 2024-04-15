@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/db";
+import { getSortQuery } from "@/utils/getSortQuery";
 
 export const GET = async (request: NextRequest) => {
     try {
         const searchParams = request.nextUrl.searchParams;
         const skip = searchParams.get('skip');
         const take = searchParams.get('take');
+        const sort = searchParams.get('sort');
+
+        let orderBy = getSortQuery(sort);
 
         const products = await prisma.product.findMany({
             take: Number(take) || 1000,
@@ -26,7 +30,8 @@ export const GET = async (request: NextRequest) => {
                         name: true
                     }
                 }
-            }
+            },
+            orderBy
         })
 
         const totalProducts = await prisma.product.count()

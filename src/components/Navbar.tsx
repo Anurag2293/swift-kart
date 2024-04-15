@@ -3,6 +3,7 @@ import { auth } from '@/app/auth'
 import GoogleSignInButton from './ui/GoogleSignInButton';
 import GoogleSignOutButton from './ui/GoogleSignOutButton';
 import ThemeController from './ThemeController';
+import Link from 'next/link';
 
 const Navbar = async () => {
     const session = await auth();
@@ -12,7 +13,7 @@ const Navbar = async () => {
     return (
         <div className="navbar bg-base-100 sticky top-0 z-[10000]">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">Swift KART</a>
+                <Link href="/" className="btn btn-ghost text-xl">Swift KART</Link>
             </div>
             {session?.user ?
                 <div className="flex-none">
