@@ -84,7 +84,6 @@ export default function Search() {
 										<div className="divider divider-horizontal" />
 										{String(product.rating)}⭐
 									</div>
-									{String(product.discount_percentage)}
 									<button className="btn btn-primary">View Details</button>
 								</div>
 							</div>

@@ -11,7 +11,7 @@ const SortOptions = (props: Props) => {
     const updateQueryURL = useUpdateQueryURL()
     
     return (
-        <div className="flex flex-col gap-y-2">
+        <div className="hidden md:flex flex-col gap-y-2">
             <h4 className="text-secondary">Sort</h4>
             <Link
                 href={updateQueryURL('sort', 'null')}

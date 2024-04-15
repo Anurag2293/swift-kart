@@ -31,7 +31,7 @@ const Collections = (props: Props) => {
     if (error) return "Error fetching categories."
 
     return (
-        <div className='w-max'>
+        <div className='hidden md:block w-max'>
             <h4 className="text-secondary">Collections</h4>
             <Link href='/search' className={`w-max block ${'all' === pathCategory && 'underline'}`}>All</Link>
             {data.categories.map((category: Category) => {
