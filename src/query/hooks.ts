@@ -17,7 +17,7 @@ export const useUpdateQueryURL = () => {
 
 			return pathname + '?' + params.toString()
 		},
-		[searchParams]
+		[searchParams, pathname]
 	)
 
     return updateQueryURL;
