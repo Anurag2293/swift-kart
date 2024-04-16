@@ -25,6 +25,7 @@ export const GET = async (request: NextRequest) => {
                 stock: true,
                 brand: true,
                 thumbnail: true,
+                category_id: true,
                 category: {
                     select: {
                         name: true
