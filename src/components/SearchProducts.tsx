@@ -71,7 +71,7 @@ export default function SearchProducts({ queryBaseUrl }: { queryBaseUrl: string 
 							<div className="card-body">
 								<h2 className="card-title">
 									<div className="tooltip tooltip-info" data-tip={product.title}>
-										{product.title?.substring(0, 20)}
+										{product.title?.substring(0, 15)}
 									</div>
 									<span className="badge badge-outline">{product.category.name}</span>
 								</h2>
