@@ -1,11 +1,16 @@
+import SearchProducts from '@/components/SearchProducts'
 import React from 'react'
 
-type Props = {}
+type Props = {
+    params: {
+        category: string
+    }
+}
 
 const SearchCategory = (props: Props) => {
-    return (
-        <div>SearchCategory</div>
-    )
+    const queryBaseUrl = `/api/products/${props.params.category}`;
+
+    return <SearchProducts queryBaseUrl={queryBaseUrl} />
 }
 
 export default SearchCategory

@@ -39,11 +39,19 @@ export const GET = async (request: NextRequest, {params}: {params: { category: s
                         _count: true
                     },
                     orderBy,
+                },
+                _count: {
+                    select: {
+                        Product: true
+                    }
                 }
             }
         }) 
 
-        return NextResponse.json(results);
+        const products = results?.Product;
+        const totalProducts = results?._count.Product;
+
+        return NextResponse.json({ products, totalProducts });
     } catch (error) {
         return NextResponse.error();
     }
